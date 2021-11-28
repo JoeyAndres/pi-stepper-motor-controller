@@ -8,19 +8,29 @@ export class StepperMotorController {
 
   constructor(dirPin: number, stepPin: number, enablePin: number) {
     this.dirPin = new Gpio(dirPin, 'out');
+    this.dirPin.writeSync(0);
     this.stepPin = new Gpio(stepPin, 'out');
     this.enablePin = new Gpio(enablePin, 'out');
+    this.enablePin.writeSync(0);
   }
 
-  async forward() {
+  public async forward() {
     await this.dirPin.write(0);
   }
 
-  async reverse() {
+  public async reverse() {
     await this.dirPin.write(1);
   }
 
-  async run(steps: number, halfStepDelayMs: number) {
+  public async enable() {
+    await this.enablePin.write(0);
+  }
+
+  public async disable() {
+    await this.enablePin.write(1);
+  }
+
+  public async run(steps: number, halfStepDelayMs: number) {
     for (let i = 0; i < steps; i++) {
       await this.stepPin.write(1);
       await sleep(halfStepDelayMs);
