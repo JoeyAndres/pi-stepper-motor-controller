@@ -2,7 +2,7 @@
   "name": "pi-stepper-motor-controller",
   "version": "0.0.1",
   "description": "Raspberry Pi Stepper Motor Controller",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist/ && tsc",
     "start": "npm run build && node dist/index.js",
