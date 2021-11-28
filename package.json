@@ -1,0 +1,15 @@
+{
+  "name": "pi-stepper-motor-controller",
+  "version": "0.0.1",
+  "description": "Raspberry Pi Stepper Motor Controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.3"
+  }
+}
