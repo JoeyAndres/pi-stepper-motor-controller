@@ -1,12 +1,12 @@
 import { hrtime } from 'process';
 
 export function hrSleep(microsecs: number) {
-  let hrTime = hrtime;
-  const startTimeMicroSec = hrTime[0] * 1000000 + hrTime[1] * 1000;
-  let delta = 0;
+  let nanoSecs = hrtime.bigint();
+  const startTimeMicroSec = nanoSecs * 1000n;
+  let delta = 0n;
   while (delta >= microsecs) {
-    hrTime = hrtime;
-    const endTimeMicroSec = hrTime[0] * 1000000 + hrTime[1] * 1000;
+    nanoSecs = hrtime.bigint();
+    const endTimeMicroSec = nanoSecs * 1000n;
     delta = endTimeMicroSec - startTimeMicroSec;
   }
 }
