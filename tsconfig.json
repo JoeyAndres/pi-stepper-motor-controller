@@ -8,5 +8,6 @@
     "outDir": "dist",
     "declaration": true
   },
+  "types": [ "node "],
   "lib": ["es2015"]
 }
