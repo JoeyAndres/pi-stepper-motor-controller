@@ -1,5 +1,5 @@
 import { Gpio } from 'onoff';
-import { sleep } from './lib';
+import { hrSleep } from './lib';
 
 export class StepperMotorController {
   private readonly dirPin: Gpio;
@@ -30,12 +30,12 @@ export class StepperMotorController {
     await this.enablePin.write(1);
   }
 
-  public async run(steps: number, halfStepDelayMs: number) {
+  public run(steps: number, halfStepDelayMicroSec: number) {
     for (let i = 0; i < steps; i++) {
-      await this.stepPin.write(1);
-      await sleep(halfStepDelayMs);
-      await this.stepPin.write(0);
-      await sleep(halfStepDelayMs);
+      this.stepPin.writeSync(1);
+      hrSleep(halfStepDelayMicroSec);
+      this.stepPin.writeSync(0);
+      hrSleep(halfStepDelayMicroSec);
     }
   }
 }
