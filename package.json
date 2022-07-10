@@ -1,6 +1,6 @@
 {
   "name": "pi-stepper-motor-controller",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Raspberry Pi Stepper Motor Controller",
   "main": "dist/index.js",
   "scripts": {
