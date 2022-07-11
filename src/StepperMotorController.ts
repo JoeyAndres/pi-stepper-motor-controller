@@ -30,12 +30,11 @@ export class StepperMotorController {
     await this.enablePin.write(1);
   }
 
-  public run(steps: number, halfStepDelayMicroSec: number) {
+  public async run(steps: number, stepDelaySeconds: number) {
     for (let i = 0; i < steps; i++) {
       this.stepPin.writeSync(1);
-      sleep(halfStepDelayMicroSec);
+      await sleep(stepDelaySeconds);
       this.stepPin.writeSync(0);
-      sleep(halfStepDelayMicroSec);
     }
   }
 }
