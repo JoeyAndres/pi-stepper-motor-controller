@@ -35,6 +35,7 @@ export class StepperMotorController {
       this.stepPin.writeSync(1);
       await sleep(stepDelaySeconds);
       this.stepPin.writeSync(0);
+      await sleep(stepDelaySeconds);
     }
   }
 }
